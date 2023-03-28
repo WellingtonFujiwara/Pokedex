@@ -18,8 +18,8 @@ export class PokeListComponent {
   ngOnInit(): void {
     this.pokeApiServiceService.apiListAllPokemons.subscribe(
       res => {
-        this.setAllPokemons = res.results;
-        this.getAllPokemons = res.setAllPokemons;
+        console.log(this.setAllPokemons = res.results)
+        this.getAllPokemons = res.setAllPokemons
       }
     );
   }
