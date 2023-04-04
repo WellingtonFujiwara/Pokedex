@@ -8,6 +8,7 @@ import { PokeApiServiceService } from './../../service/poke-api-service.service'
 })
 export class PokeListComponent {
 
+  public apiError: boolean = false;
   private setAllPokemons: any;
   public getAllPokemons: any;
 
@@ -18,8 +19,12 @@ export class PokeListComponent {
   ngOnInit(): void {
     this.pokeApiServiceService.apiListAllPokemons.subscribe(
       res => {
-        console.log(this.setAllPokemons = res.results)
-        this.getAllPokemons = res.setAllPokemons
+        this.setAllPokemons = res.results;
+        this.getAllPokemons = res.setAllPokemons;
+      },
+
+      error => {
+        this.apiError = true;
       }
     );
   }
