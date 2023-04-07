@@ -23,10 +23,10 @@ export class DetailsComponent {
   ){}
 
   ngOnInit(): void {
-    this.getPokemon;
+    this.getPokemon();
   }
 
-  get getPokemon() {
+  public getPokemon() {
     const id = this.activatedRoute.snapshot.params['id'];
     const pokemon = this.pokeApiServiceService.apiGetPokemons(`${this.urlPokemon}/${id}`);
     const name = this.pokeApiServiceService.apiGetPokemons(`${this.urlName}/${id}`)
